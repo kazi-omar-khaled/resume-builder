@@ -1,0 +1,138 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --primary: #5568ff;
+  --primary-2: #4455e6;
+  --radius: 16px;
+  --focus: rgba(85, 104, 255, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Toast (used by existing code) ---------- */
+.toast-root,
+#toast-root {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-width: 220px;
+  max-width: 320px;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+
+.toast--success {
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.toast--error {
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* ---------- Shared primitives ---------- */
+.ui-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.ui-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, border-color 0.15s ease;
+}
+
+.ui-btn:active {
+  transform: translateY(1px);
+}
+
+.ui-btn--primary {
+  background: var(--primary);
+  color: white;
+}
+
+.ui-btn--primary:hover {
+  background: var(--primary-2);
+  box-shadow: 0 10px 20px rgba(85, 104, 255, 0.22);
+}
+
+.ui-btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.ui-btn--ghost:hover {
+  border-color: rgba(85, 104, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(85, 104, 255, 0.12);
+}
+
+.ui-input,
+.ui-textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 12px 12px;
+  font-size: 15px;
+  outline: none;
+  background: white;
+}
+
+.ui-input:focus,
+.ui-textarea:focus {
+  border-color: rgba(85, 104, 255, 0.7);
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
